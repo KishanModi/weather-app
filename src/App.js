@@ -12,11 +12,6 @@ function App() {
 	const [ipWeather, setIpWeather] = useState({});
 	const [show, setShow] = useState(true);
 	const [isLoading, setLoading] = useState(true);
-	// const getIP = async () => {
-	// 	const res = await axios.get('https://geolocation-db.com/json/');
-	// 	console.log(res.data);
-	// 	setIP(res.data);
-	// };
 
 	const getData = async () => {
 		await axios.get('https://geolocation-db.com/json/').then((res) => {
