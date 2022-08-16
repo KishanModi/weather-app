@@ -9,7 +9,8 @@ const GlobalProvider = ({ children }) => {
 	const [ipWeather, setIpWeather] = useState({});
 	const [show, setShow] = useState(true);
 	const [isLoading, setLoading] = useState(true);
-
+	const [results, setResult] = useState([]);
+	const [update, setUpdate] = useState(false);
 	return (
 		<GlobalCtx.Provider
 			value={{
@@ -18,7 +19,9 @@ const GlobalProvider = ({ children }) => {
 				ipCtx: [ip, setIP],
 				ipWeatherCtx: [ipWeather, setIpWeather],
 				showCtx: [show, setShow],
-				isLoadingCtx: [isLoading, setLoading]
+				isLoadingCtx: [isLoading, setLoading],
+				resultsCtx: [results, setResult],
+				updateCtx: [update, setUpdate]
 			}}>
 			{children}
 		</GlobalCtx.Provider>

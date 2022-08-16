@@ -13,19 +13,27 @@ export const SearchBox = (props) => {
 		return () => {};
 	}, [props.query]);
 	return (
-		<div className="search-box">
+		<div className='search-box'>
 			<input
-				type="text"
-				className="search-bar"
-				placeholder="Search..."
+				type='text'
+				className='search-bar'
+				style={
+					props.results.length !== 0 ? {} : { borderRadius: '16px' }
+				}
+				placeholder='Search...'
 				onChange={(e) => {
-					props.setQuery(e.target.value);
+					if (e.target.value === '') {
+						props.setUpdate(false);
+						props.setQuery('');
+					} else {
+						props.setUpdate(true);
+						props.setQuery(e.target.value);
+					}
 				}}
 				value={props.query}
-				onKeyPress={props.search}
 			/>
-			<button id="search" onClick={props.btnClick} disabled={!btn}>
-				<i className="fa-solid fa-magnifying-glass"></i>
+			<button id='search' onClick={props.btnClick} disabled={!btn}>
+				<i className='fa-solid fa-magnifying-glass'></i>
 			</button>
 		</div>
 	);
